@@ -1,0 +1,64 @@
+<!-- Row -->
+<div class="row">
+    <div class="col-12">
+        <!-- You can find this in the dashboard-component -->
+        <app-income-counter></app-income-counter>
+    </div>
+</div>
+<!-- Row -->
+<!-- Row -->
+<div class="row">
+    <!-- Column -->
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex flex-wrap">
+                            <div>
+                                <h4>Revenue Statistics</h4>
+                                
+                            </div>
+                            <div class="ml-auto ">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <h6 class="text-muted">
+                                            <i class="fa fa-circle m-r-5 text-success"></i>Product A</h6>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <h6 class="text-muted">
+                                            <i class="fa fa-circle m-r-5 text-info"></i>Product B</h6>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div style="height:370px;">
+                            <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels"
+                                [options]="lineChartOptions" [legend]="lineChartLegend">
+                            </canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 m-b-30 m-t-20 text-center">
+                        <h2 class=" font-weight-normal">$54578</h2>
+                        <h6 class="text-muted">Total Revenue</h6>
+                    </div>
+                    <div class="col-lg-3 col-md-6 m-b-30 m-t-20 text-center">
+                        <h2 class=" font-weight-normal">$43451</h2>
+                        <h6 class="text-muted">Online Revenue</h6>
+                    </div>
+                    <div class="col-lg-3 col-md-6 m-b-30 m-t-20 text-center">
+                        <h2 class=" font-weight-normal">$44578</h2>
+                        <h6 class="text-muted">Product A</h6>
+                    </div>
+                    <div class="col-lg-3 col-md-6 m-b-30 m-t-20 text-center">
+                        <h2 class=" font-weight-normal">$12578</h2>
+                        <h6 class="text-muted">Product B</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Row -->
