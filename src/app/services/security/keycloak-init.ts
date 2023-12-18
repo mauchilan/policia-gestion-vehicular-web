@@ -6,7 +6,7 @@ export function initializeKeycloak(keycloak: KeycloakService, auth: AuthService)
       keycloak.init({
         config: {
           url: 'http://localhost:8080',
-          realm: 'Policia Nacional',
+          realm: 'policianacional',
           clientId: 'gestion-vehicular'
         },
         initOptions: {

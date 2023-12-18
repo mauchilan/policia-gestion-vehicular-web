@@ -1,0 +1,168 @@
+<!-- Row -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Nuevo Vehiculo</h4>
+            </div>
+            <hr>
+            <form [formGroup]="vehiculoForm">
+                <div class="card-body">
+                    <div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="tipoVehiculo">Tipo de Vehiculo</label>
+                        </div>
+                        <div class="col-3">
+                            <!--input type="text" pInputText id="tipoVehiculo" formControlName="tipoVehiculo" required [ngClass]="{'ng-invalid ng-dirty' : !vehiculoForm.controls['tipoVehiculo'].valid}" -->
+                            <p-dropdown formControlName="tipoVehiculo" [options]="tipoVehiculos" optionLabel="name" placeholder="Seleccionar Tipo Vehiculo"></p-dropdown>
+                            <small id="nombre_req" class="p-error" *ngIf="!vehiculoForm.controls['tipoVehiculo'].valid">Tipo de vehiculo es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="placa">Placa</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="placa" formControlName="placa" >
+                            <small id="nombre_req" class="p-error" *ngIf="!vehiculoForm.controls['placa'].valid">Placa es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="chasis">Chasis</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="chasis" formControlName="chasis" >
+                            <small id="nombre_req" class="p-error" *ngIf="!vehiculoForm.controls['chasis'].valid">Placa es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="marca">Marca</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="marca" formControlName="marca" >
+                            <small id="nombre_req" class="p-error" *ngIf="!vehiculoForm.controls['marca'].valid">Placa es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="modelo">Modelo</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="modelo" formControlName="modelo" >
+                            <small id="nombre_req" class="p-error" *ngIf="!vehiculoForm.controls['modelo'].valid">Placa es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="motor">Motor</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="motor" formControlName="motor" >
+                            <small id="nombre_req" class="p-error" *ngIf="!vehiculoForm.controls['motor'].valid">Placa es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="kilometraje">Kilometraje</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="kilometraje" formControlName="kilometraje" >
+                            <small id="nombre_req" class="p-error" *ngIf="!vehiculoForm.controls['kilometraje'].valid">Placa es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="cilindraje">Cilindraje</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="cilindraje" formControlName="cilindraje" >
+                            <small id="nombre_req" class="p-error" *ngIf="!vehiculoForm.controls['cilindraje'].valid">Placa es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="capacidadCarga">Capacidad de carga</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="capacidadCarga" formControlName="capacidadCarga" >
+                            <small id="nombre_req" class="p-error" *ngIf="!vehiculoForm.controls['capacidadCarga'].valid">Placa es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="kilometraje">Capacidad de pasajeros</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="capacidadPasajero" formControlName="capacidadPasajero" >
+                            <small id="nombre_req" class="p-error" *ngIf="!vehiculoForm.controls['capacidadPasajero'].valid">Placa es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="guardarVehiculo()">Grabar</button>
+                            <button type="button" class="btn btn-info waves-effect waves-light">Cancelar</button>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

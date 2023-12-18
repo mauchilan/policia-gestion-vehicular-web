@@ -1,3 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800');
+
+@import "primeng/resources/themes/md-light-indigo/theme.css";
+@import "primeng/resources/primeng.css";
+
+.p-inputtext {
+    width: 100%;
+    padding: 0.475rem 0.875rem;
+}
+
+.p-dropdown {
+    width: 100%;
+}

@@ -1,0 +1,60 @@
+<!-- Row -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex no-block align-items-center">
+                    <h4 class="card-title">Vehiculos</h4>
+                    <div class="ms-auto">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="openNuevoVehiculo()">Nuevo Vehiculo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3">
+                        <input type="text" pInputText class="p-inputtext-sm" id="tipoVehiculo"
+                            placeholder="Tipo de vehiculo">
+                    </div>
+                    <div class="col-3">
+                        <input type="text" pInputText id="placa" placeholder="Placa">
+                    </div>
+                    <div class="col-3">
+                        <input type="text" pInputText id="chasis" placeholder="Chasis">
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-info waves-effect waves-light">Buscar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <p-table  [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                    [tableStyle]="{ 'min-width': '50rem' }" styleClass="p-datatable-gridlines"
+                    currentPageReportTemplate="Mostrando {first} to {last} de {totalRecords} totales"
+                    [rowsPerPageOptions]="[10, 25, 50]" >
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th >Tipo de Vehiculo</th>
+                            <th>Placa</th>
+                            <th >Chasis</th>
+                            <th >Marca</th>
+                            <th >Modelo</th>
+                            <th >Motor</th>
+                            <th >Acciones</th>
+                        </tr>
+                    </ng-template>
+                    
+                    <ng-template pTemplate="paginatorleft">
+                        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+                    </ng-template>
+                    <ng-template pTemplate="paginatorright">
+                        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>
