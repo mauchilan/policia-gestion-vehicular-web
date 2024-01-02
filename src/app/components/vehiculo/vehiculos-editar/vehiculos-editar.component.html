@@ -1,9 +1,8 @@
-<!-- Row -->
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Nuevo Vehiculo</h4>
+                <h4 class="card-title">{{ accion }} Vehiculo</h4>
             </div>
             <hr>
             <form [formGroup]="vehiculoForm">
@@ -15,8 +14,9 @@
                             <label for="tipoVehiculo">Tipo de Vehiculo</label>
                         </div>
                         <div class="col-3">
-                            <!--input type="text" pInputText id="tipoVehiculo" formControlName="tipoVehiculo" required [ngClass]="{'ng-invalid ng-dirty' : !vehiculoForm.controls['tipoVehiculo'].valid}" -->
-                            <p-dropdown formControlName="tipoVehiculo" [options]="tipoVehiculos" optionLabel="name" placeholder="Seleccionar Tipo Vehiculo" (onChange)="obtenerMarcas()"></p-dropdown>
+                            <p-dropdown formControlName="tipoVehiculo" [options]="tipoVehiculos.childs" optionValue="idCatalogo" optionLabel="descripcion" 
+                                placeholder="Seleccionar Tipo Vehiculo" (onChange)="obtenerMarcas()">
+                            </p-dropdown>
                             <small id="nombre_req" class="p-error" *ngIf="!vehiculoForm.controls['tipoVehiculo'].valid">Tipo de vehiculo es requerido.</small>
                         </div>
                         <div class="col-3">
@@ -58,7 +58,9 @@
                             <label for="marca">Marca</label>
                         </div>
                         <div class="col-3">
-                            <p-dropdown formControlName="marca" [options]="tipoMarcas" optionLabel="name" placeholder="Seleccionar Marca" (onChange)="obtenerModelo()"></p-dropdown>
+                            <p-dropdown formControlName="marca" [options]="tipoMarcas.childs" optionValue="idCatalogo" optionLabel="descripcion" 
+                                placeholder="Seleccionar Marca" (onChange)="obtenerModelo()">
+                            </p-dropdown>
                             <small id="marca" class="p-error" *ngIf="!vehiculoForm.controls['marca'].valid">Marca es requerido.</small>
                         </div>
                         <div class="col-3">
@@ -72,7 +74,7 @@
                             <label for="modelo">Modelo</label>
                         </div>
                         <div class="col-3">
-                            <p-dropdown formControlName="modelo" [options]="tipoModelo" optionLabel="name" placeholder="Seleccionar Modelo"></p-dropdown>
+                            <p-dropdown formControlName="modelo" [options]="tipoModelo.childs" optionValue="idCatalogo" optionLabel="descripcion" placeholder="Seleccionar Modelo"></p-dropdown>
                             <small id="modelo" class="p-error" *ngIf="!vehiculoForm.controls['modelo'].valid">Modelo es requerido.</small>
                         </div>
                         <div class="col-3">
@@ -155,7 +157,7 @@
                         <div class="col-3">
                         </div>
                         <div class="col-3">
-                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="guardarVehiculo($event)">Grabar</button>
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="guardarVehiculo($event)">{{ accion }}</button>
                             <button type="button" class="btn btn-info waves-effect waves-light" (click)="cancelar()">Cancelar</button>
                         </div>
                         <div class="col-3">

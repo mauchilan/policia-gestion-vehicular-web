@@ -2,8 +2,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800');
 
-@import "primeng/resources/themes/md-light-indigo/theme.css";
-@import "primeng/resources/primeng.css";
+@import "../node_modules/primeng/resources/themes/md-light-indigo/theme.css";
+@import "../node_modules/primeng/resources/primeng.css";
+@import "../node_modules/primeicons/primeicons.css";
 
 .p-inputtext {
     width: 100%;
@@ -12,4 +13,8 @@
 
 .p-dropdown {
     width: 100%;
+}
+
+.p-button-rounded {
+    border-radius: 2rem !important;
 }

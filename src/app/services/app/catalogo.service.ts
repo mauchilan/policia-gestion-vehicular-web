@@ -7,7 +7,7 @@ import { Catalogo } from '../../models/catalogo';
 })
 export class CatalogoService {
 
-  baseUrl = "http://localhost:8280"
+  baseUrl = "http://localhost:8280/gestion-api";
 
   constructor(private http: HttpClient) { }
 

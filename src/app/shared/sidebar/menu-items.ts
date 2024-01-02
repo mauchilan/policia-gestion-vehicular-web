@@ -16,7 +16,7 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
-  },
+  }/*,
   {
     path: '/apps/chat',
     title: 'Chat App',
@@ -866,5 +866,5 @@ export const ROUTES: RouteInfo[] = [
         ]
       }
     ]
-  }
+  }*/
 ];
