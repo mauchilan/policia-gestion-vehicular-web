@@ -16,15 +16,40 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
-  }/*,
+  },
   {
-    path: '/apps/chat',
-    title: 'Chat App',
+    path: '',
+    title: 'Dependencias',
     icon: 'mdi mdi-comment-processing-outline',
     class: '',
     extralink: false,
-    submenu: []
-  },
+    submenu: [
+      {
+        path: '/dependencia/distritos',
+        title: 'Distritos',
+        icon: 'mdi mdi-book-multiple',
+        class: '',
+        extralink: false,
+        submenu: []
+      },
+      {
+        path: '/dependencia/circuitos',
+        title: 'Circuitos',
+        icon: 'mdi mdi-book-plus',
+        class: '',
+        extralink: false,
+        submenu: []
+      },
+      {
+        path: '/dependencia/subcircuitos',
+        title: 'Subcircuitos',
+        icon: 'mdi mdi-book-plus',
+        class: '',
+        extralink: false,
+        submenu: []
+      }
+    ]
+  }/*,
   {
     path: '',
     title: 'Ticket',

@@ -1,0 +1,78 @@
+<!-- Row -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Nuevo Distrito</h4>
+            </div>
+            <hr>
+            <form [formGroup]="distritoForm">
+                <div class="card-body">
+                    <div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="idLocalidad">Provincia</label>
+                        </div>
+                        <div class="col-3">                
+                            <p-dropdown formControlName="idLocalidad" [options]="localidades" optionValue="idLocalidad" optionLabel="nombreLocalidad" placeholder="Seleccionar Provincia"></p-dropdown>
+                            <small id="nombre_req" class="p-error" *ngIf="!distritoForm.controls['idLocalidad'].valid">Provincia es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="idDependencia">Id del Distrito</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="idDependencia" formControlName="idDependencia" >
+                            <small id="nombre_req" class="p-error" *ngIf="!distritoForm.controls['idDependencia'].valid">Id del Distrito es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="nombreDependencia">Descripci&oacute;n del distrito</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="nombreDependencia" formControlName="nombreDependencia" >
+                            <small id="nombre_req" class="p-error" *ngIf="!distritoForm.controls['nombreDependencia'].valid">Chasis es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-info waves-effect waves-light">Grabar</button>
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="cancelar()">Cancelar</button>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                </div>
+                <p-toast></p-toast>
+                <p-confirmDialog></p-confirmDialog>
+            </form>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Mensaje" [(visible)]="visible" [modal]="true" [draggable]="false" [resizable]="false" [style]="{ width: '25vw' }">
+    <p>
+        No se han llenado todo los campos obligatorios.
+    </p>
+</p-dialog>
