@@ -35,24 +35,24 @@
                     <div class="col-12">
                         <p-table [value]="distritos" [tableStyle]="{ 'min-width': '50rem' }">
                             <ng-template pTemplate="header">
-                                <tr>
-                                    <th>Provincia</th>
+                                <tr>                                    
                                     <th>ID Ditrito</th>
                                     <th>Distrito</th>
-                                    <th>N&uacute;mero</th>
+                                    <!--th>N&uacute;mero</th-->
+                                    <th>Provincia</th>
                                 </tr>
                             </ng-template>
                             <ng-template pTemplate="body" let-distrito>
-                                <tr>
-                                    <td>{{ distrito.localidad.nombreLocalidad }}</td>
+                                <tr>                                    
                                     <td>{{ distrito.idDependencia }}</td>
                                     <td>{{ distrito.nombreDependencia }}</td>
-                                    <td>{{ distrito.numeroDependencia }}</td>
+                                    <!--td>{{ distrito.numeroDependencia }}</td-->
+                                    <td>{{ distrito.localidad.nombreLocalidad }}</td>
                                     <td style="width: 5px;">
-                                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-outlined mr-2" pTooltip="Editar distrito" ></button>
+                                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-outlined mr-2" pTooltip="Editar distrito" (click)="openEditDistrito('editar', distrito)"></button>
                                     </td>
                                     <td style="width: 5px;">
-                                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-outlined mr-2" pTooltip="Eliminar distrito" ></button>
+                                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-outlined mr-2" pTooltip="Eliminar distrito" (click)="openEditDistrito('editar', distrito)"></button>
                                     </td>
                                 </tr>
                             </ng-template>

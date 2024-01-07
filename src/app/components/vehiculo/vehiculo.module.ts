@@ -14,8 +14,8 @@ import { DialogModule } from 'primeng/dialog';
 
 import { VehiculoRoutes } from './vehiculo-routing.module';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
-import { VehiculosNuevoComponent } from './vehiculos-nuevo/vehiculos-nuevo.component';
-import { VehiculosEditarComponent } from './vehiculos-editar/vehiculos-editar.component';
+import { VehiculosNuevoComponent } from './vehiculos/vehiculos-nuevo/vehiculos-nuevo.component';
+import { VehiculosEditarComponent } from './vehiculos/vehiculos-editar/vehiculos-editar.component';
 
 
 @NgModule({

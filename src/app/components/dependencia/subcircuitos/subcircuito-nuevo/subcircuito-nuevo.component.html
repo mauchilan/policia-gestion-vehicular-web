@@ -1,0 +1,134 @@
+<!-- Row -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Nuevo Subcircuito</h4>
+            </div>
+            <hr>
+            <form [formGroup]="subcircuitoForm">
+                <div class="card-body">
+                    <div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="idLocalidad">Provincia</label>
+                        </div>
+                        <div class="col-3">                
+                            <p-dropdown formControlName="idProvincia" [options]="provincias" optionValue="idLocalidad" optionLabel="nombreLocalidad" placeholder="Seleccionar Provincia" (onChange)="obtenerDependencias()"></p-dropdown>
+                            <small id="nombre_req" class="p-error" *ngIf="!subcircuitoForm.controls['idProvincia'].valid">Provincia es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="idLocalidad">Distrito</label>
+                        </div>
+                        <div class="col-3">                
+                            <p-dropdown formControlName="idDistrito" [options]="distritos" optionValue="idDependencia" optionLabel="nombreDependencia" placeholder="Seleccionar Distrito" (onChange)="obtenerCircuito()"></p-dropdown>
+                            <small id="nombre_req" class="p-error" *ngIf="!subcircuitoForm.controls['idDistrito'].valid">Distrito es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="idParentDependencia">Circuito</label>
+                        </div>
+                        <div class="col-3">                
+                            <p-dropdown formControlName="idParentDependencia" [options]="circuitos" optionValue="idDependencia" optionLabel="nombreDependencia" placeholder="Seleccionar Distrito" (onChange)="obtenerParroquias()"></p-dropdown>
+                            <small id="nombre_req" class="p-error" *ngIf="!subcircuitoForm.controls['idParentDependencia'].valid">Circuito es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <!--div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="idLocalidad">Cant&oacute;n</label>
+                        </div>
+                        <div class="col-3">                
+                            <p-dropdown formControlName="idCanton" [options]="cantones" optionValue="idLocalidad" optionLabel="nombreLocalidad" placeholder="Seleccionar Provincia"></p-dropdown>
+                            <small id="nombre_req" class="p-error" *ngIf="!subcircuitoForm.controls['idCanton'].valid">Cant&oacute;n es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div-->
+                    <br />
+                    <div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="idLocalidad">Parroquia</label>
+                        </div>
+                        <div class="col-3">                
+                            <p-dropdown formControlName="idLocalidad" [options]="parroquias" optionValue="idLocalidad" optionLabel="nombreLocalidad" placeholder="Seleccionar Provincia"></p-dropdown>
+                            <small id="nombre_req" class="p-error" *ngIf="!subcircuitoForm.controls['idLocalidad'].valid">Cant&oacute;n es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="idDependencia">Id del subcircuito</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="idDependencia" formControlName="idDependencia" >
+                            <small id="nombre_req" class="p-error" *ngIf="!subcircuitoForm.controls['idDependencia'].valid">Id del subcircuito es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="nombreDependencia">Descripci&oacute;n del subcircuito</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="nombreDependencia" formControlName="nombreDependencia" >
+                            <small id="nombre_req" class="p-error" *ngIf="!subcircuitoForm.controls['nombreDependencia'].valid">Descripci&oacute;n del subcircuito es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div   >
+                
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="guardarSubcircuito($event)">Grabar</button>
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="cancelar()">Cancelar</button>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                </div>
+                <p-toast></p-toast>
+                <p-confirmDialog></p-confirmDialog>
+            </form>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Mensaje" [(visible)]="visible" [modal]="true" [draggable]="false" [resizable]="false" [style]="{ width: '25vw' }">
+    <p>
+        No se han llenado todo los campos obligatorios.
+    </p>
+</p-dialog>

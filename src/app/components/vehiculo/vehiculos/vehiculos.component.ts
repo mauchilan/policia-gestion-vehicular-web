@@ -2,7 +2,7 @@ import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { Router } from "@angular/router";
 import { Vehiculo } from '../../../models/vehiculo';
 import { VehiculoService } from '../../../services/app/vehiculo.service';
-import { VehiculosEditarComponent } from '../vehiculos-editar/vehiculos-editar.component';
+import { VehiculosEditarComponent } from './vehiculos-editar/vehiculos-editar.component';
 
 interface PageEvent {
   first: number;
@@ -70,6 +70,7 @@ export class VehiculosComponent {
       dynamicComp.tipo = tipo;
       dynamicComp?.complete.subscribe(complete => {
         if (complete) {
+          this.dynamicContent = false;
           this.dynamicContent = false;
         }
       });

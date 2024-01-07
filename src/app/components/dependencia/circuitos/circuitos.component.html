@@ -7,7 +7,7 @@
                     <h4 class="card-title">Circuitos</h4>
                     <div class="ms-auto">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-info waves-effect waves-light">Nuevo Circuito</button>
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="openNuevoCircuito()">Nuevo Circuito</button>
                         </div>
                     </div>
                 </div>
@@ -31,38 +31,34 @@
                 </div>
             </div-->
             <div class="card-body">
-                <!--div class="row">
+                <div class="row">
                     <div class="col-12">
-                        <p-table [value]="vehiculos" [tableStyle]="{ 'min-width': '50rem' }">
+                        <p-table [value]="circuitos" [tableStyle]="{ 'min-width': '50rem' }">
                             <ng-template pTemplate="header">
                                 <tr>
-                                    <th>Tipo de vehiculo</th>
-                                    <th>Placa</th>
-                                    <th>Chasis</th>
-                                    <th>Marca</th>
-                                    <th>Modelo</th>
-                                    <th>Motor</th>
+                                    <th>ID</th>
+                                    <th>Circuito</th>
+                                    <th>Distrito</th>
+                                    <th>Provincia</th>
                                 </tr>
                             </ng-template>
-                            <ng-template pTemplate="body" let-vehiculo>
+                            <ng-template pTemplate="body" let-circuito>
                                 <tr>
-                                    <td>{{ vehiculo.tipoVehiculo.descripcion }}</td>
-                                    <td>{{ vehiculo.placa }}</td>
-                                    <td>{{ vehiculo.chasis }}</td>
-                                    <td>{{ vehiculo.marca.descripcion }}</td>
-                                    <td>{{ vehiculo.modelo.descripcion }}</td>
-                                    <td>{{ vehiculo.motor }}</td>
+                                    <td>{{ circuito.idDependencia}}</td>
+                                    <td>{{ circuito.nombreDependencia }}</td>
+                                    <td>{{ circuito.dependencia.nombreDependencia }}</td>
+                                    <td>{{ circuito.localidad.nombreLocalidad }}</td>
                                     <td style="width: 5px;">
-                                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-outlined mr-2" pTooltip="Editar nodo" (click)="openEditVehiculo('editar', vehiculo)"></button>
+                                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-outlined mr-2" pTooltip="Editar nodo" (click)="openEditCircuito('editar', circuito)"></button>
                                     </td>
                                     <td style="width: 5px;">
-                                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-outlined mr-2" pTooltip="Editar nodo" (click)="openEditVehiculo('eliminar', vehiculo)"></button>
+                                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-outlined mr-2" pTooltip="Editar nodo" (click)="openEditCircuito('eliminar', circuito)"></button>
                                     </td>
                                 </tr>
                             </ng-template>
                         </p-table>
                     </div>
-                </div-->
+                </div>
                 <!--div class="row">
                     <div class="col-6"></div>
                     <div class="col-6">

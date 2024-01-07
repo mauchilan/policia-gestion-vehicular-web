@@ -15,4 +15,9 @@ export class LocalidadService {
     const url = encodeURI(`${this.baseUrl}/localidad/provincias`);
     return this.http.get<Localidad[]>(url);
   }
+
+  obtenerLocalidad(parent: number) {
+    const url = encodeURI(`${this.baseUrl}/localidad/localidades/${parent}`);
+    return this.http.get<Localidad[]>(url);
+  }
 }

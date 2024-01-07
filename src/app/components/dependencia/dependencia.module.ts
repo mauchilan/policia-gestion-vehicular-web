@@ -13,6 +13,12 @@ import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { DistritoEditarComponent } from './distritos/distrito-editar/distrito-editar.component';
+import { CircuitoNuevoComponent } from './circuitos/circuito-nuevo/circuito-nuevo.component';
+import { CircuitoEditarComponent } from './circuitos/circuito-editar/circuito-editar.component';
+import { SubcircuitoNuevoComponent } from './subcircuitos/subcircuito-nuevo/subcircuito-nuevo.component';
+import { SubcircuitoEditarComponent } from './subcircuitos/subcircuito-editar/subcircuito-editar.component';
 
 
 
@@ -21,7 +27,12 @@ import { TableModule } from 'primeng/table';
     DistritosComponent,
     CircuitosComponent,
     SubcircuitosComponent,
-    DistritoNuevoComponent
+    DistritoNuevoComponent,
+    DistritoEditarComponent,
+    CircuitoNuevoComponent,
+    CircuitoEditarComponent,
+    SubcircuitoNuevoComponent,
+    SubcircuitoEditarComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +44,7 @@ import { TableModule } from 'primeng/table';
     TableModule,
     ToastModule,
     RouterModule.forChild(DependenciasRoutes)
-  ]
+  ],
+  providers: [ConfirmationService, MessageService]
 })
 export class DependenciaModule { }

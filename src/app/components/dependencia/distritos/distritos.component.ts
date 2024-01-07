@@ -2,6 +2,7 @@ import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { DependenciaService } from '../../../services/app/dependencia.service';
 import { Dependencia } from '../../../models/dependencia';
+import { DistritoEditarComponent } from './distrito-editar/distrito-editar.component';
 
 @Component({
   selector: 'app-distritos',
@@ -23,8 +24,24 @@ export class DistritosComponent {
       this.distritos = response;
     })
   }
+  
   openNuevoDistrito() {
     this.router.navigate(['/dependencia/distritos/nuevo']);
+  }
+
+  openEditDistrito(tipo: string, distrito: Dependencia) {
+    this.dynamicContent = true;
+    if (this.dynamicInsert) {
+      this.dynamicInsert.clear();
+      let dynamicComp = this.dynamicInsert?.createComponent(DistritoEditarComponent).instance;
+      dynamicComp.distrito = distrito;
+      dynamicComp.tipo = tipo;
+      dynamicComp?.complete.subscribe(complete => {
+        if (complete) {
+          this.dynamicContent = false;
+        }
+      });
+    }
   }
 
 }

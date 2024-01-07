@@ -5,6 +5,7 @@ import { Localidad } from '../../../../models/localidad';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 import { Dependencia } from '../../../../models/dependencia';
+import { DependenciaService } from '../../../../services/app/dependencia.service';
 
 @Component({
   selector: 'app-distrito-nuevo',
@@ -20,7 +21,8 @@ export class DistritoNuevoComponent {
   constructor(public formBuilder: UntypedFormBuilder,
               private router: Router,
               private confirmationService: ConfirmationService,
-              private localidadService: LocalidadService) {}
+              private localidadService: LocalidadService,
+              private dependenciaService: DependenciaService) {}
 
   ngOnInit(): void {
     this.distritoForm = this.formBuilder.group({
@@ -33,7 +35,7 @@ export class DistritoNuevoComponent {
     });
   }
 
-  guardarVehiculo(event: Event) {
+  guardarDistrito(event: Event) {
     this.distritoForm.markAllAsTouched();
     this.distritoForm.updateValueAndValidity();
     if (!this.distritoForm.valid) {
@@ -50,7 +52,7 @@ export class DistritoNuevoComponent {
   mostrarMensaje(event: Event) {
     this.confirmationService.confirm({
       target: event.target as EventTarget,
-      message: 'Desea guardar los cambios?',
+      message: 'Desea guardar el nuevo Distrito?',
       header: 'Mensaje',
       icon: 'pi pi-exclamation-triangle',
       acceptIcon: "none",
@@ -69,6 +71,9 @@ export class DistritoNuevoComponent {
     dependencia.nombreDependencia = this.distritoForm.value.nombreDependencia;
     dependencia.localidad!.idLocalidad = this.distritoForm.value.idLocalidad;
     dependencia.tipoDependencia = "DISTRITO";
+    this.dependenciaService.grabarDependencia(dependencia).subscribe(() => {
+      this.cancelar();
+    })
   }
 
   cancelar() {

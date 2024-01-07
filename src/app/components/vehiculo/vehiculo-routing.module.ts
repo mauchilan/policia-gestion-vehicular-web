@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
-import { VehiculosNuevoComponent } from './vehiculos-nuevo/vehiculos-nuevo.component';
+import { VehiculosNuevoComponent } from './vehiculos/vehiculos-nuevo/vehiculos-nuevo.component';
 
 export const VehiculoRoutes: Routes = [
   {

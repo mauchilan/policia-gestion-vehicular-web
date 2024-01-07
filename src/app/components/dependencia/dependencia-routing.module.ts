@@ -3,6 +3,8 @@ import { DistritosComponent } from './distritos/distritos.component';
 import { CircuitosComponent } from './circuitos/circuitos.component';
 import { SubcircuitosComponent } from './subcircuitos/subcircuitos.component';
 import { DistritoNuevoComponent } from './distritos/distrito-nuevo/distrito-nuevo.component';
+import { CircuitoNuevoComponent } from './circuitos/circuito-nuevo/circuito-nuevo.component';
+import { SubcircuitoNuevoComponent } from './subcircuitos/subcircuito-nuevo/subcircuito-nuevo.component';
 
 export const DependenciasRoutes: Routes = [
   {
@@ -57,6 +59,26 @@ export const DependenciasRoutes: Routes = [
           urls: [
             { title: 'Distrito', url: '/dependencia/distritos' },
             { title: 'Distrito' }
+          ]
+        }
+      },
+      {
+        path: 'circuitos/nuevo', component: CircuitoNuevoComponent,
+        data: {
+          title: 'Nuevo Circuito',
+          urls: [
+            { title: 'Circuito', url: '/dependencia/circuitos' },
+            { title: 'Circuito' }
+          ]
+        }
+      },
+      {
+        path: 'subcircuitos/nuevo', component: SubcircuitoNuevoComponent,
+        data: {
+          title: 'Nuevo Subircuito',
+          urls: [
+            { title: 'Subcircuito', url: '/dependencia/subcircuitos' },
+            { title: 'Subcircuito' }
           ]
         }
       }

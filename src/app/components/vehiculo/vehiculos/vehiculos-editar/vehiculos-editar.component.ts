@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Vehiculo } from '../../../models/vehiculo';
+import { Vehiculo } from '../../../../models/vehiculo';
 import { FormControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Catalogo } from '../../../models/catalogo';
-import { CatalogoService } from '../../../services/app/catalogo.service';
-import { VehiculoService } from '../../../services/app/vehiculo.service';
+import { Catalogo } from '../../../../models/catalogo';
+import { CatalogoService } from '../../../../services/app/catalogo.service';
+import { VehiculoService } from '../../../../services/app/vehiculo.service';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 

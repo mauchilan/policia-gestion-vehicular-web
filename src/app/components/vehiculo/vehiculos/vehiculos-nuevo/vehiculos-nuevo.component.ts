@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators, FormControl } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { CatalogoService } from '../../../services/app/catalogo.service';
-import { Catalogo } from '../../../models/catalogo';
-import { Vehiculo } from '../../../models/vehiculo';
-import { VehiculoService } from '../../../services/app/vehiculo.service';
+import { CatalogoService } from '../../../../services/app/catalogo.service';
+import { Catalogo } from '../../../../models/catalogo';
+import { Vehiculo } from '../../../../models/vehiculo';
+import { VehiculoService } from '../../../../services/app/vehiculo.service';
 
 @Component({
   selector: 'app-vehiculos-nuevo',

@@ -5,6 +5,7 @@ export class Dependencia {
     nombreDependencia?: string;
     tipoDependencia?: string;
     numeroDependencia?: number;
-    parentDependencia?: number;
+    parentDependencia?: string;
     localidad?: Localidad;
+    dependencia?: Dependencia;
 }
