@@ -23,6 +23,12 @@ const routes: Routes = [
         loadChildren: () => import('./components/dependencia/dependencia.module').then(m => m.DependenciaModule),
         canActivate: [AuthGuard],
       }
+      ,
+      {
+        path: 'vinculacion',
+        loadChildren: () => import('./components/vinculacion/vinculacion.module').then(m => m.VinculacionModule),
+        canActivate: [AuthGuard],
+      }
     ]
   }
 ];

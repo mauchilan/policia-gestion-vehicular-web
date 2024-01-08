@@ -19,7 +19,8 @@ export function initializeKeycloak(keycloak: KeycloakService, auth: AuthService)
             keycloak.getToken().then((token) => {
               auth.setToken(token);
             });
-            keycloak.loadUserProfile().then((profile) => {
+            keycloak.loadUserProfile().then(profile => {
+              console.log(profile)
               auth.setUserStorage(profile);
             });
           }

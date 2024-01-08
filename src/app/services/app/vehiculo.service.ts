@@ -26,4 +26,14 @@ export class VehiculoService {
     return this.http.delete<any>(url);
   }
 
+  vincularVehiculos(vehiculos: Vehiculo[]) {
+    const url = encodeURI(`${this.baseUrl}/vehiculo/vincular`);
+    return this.http.put<any>(url, vehiculos);
+  }
+
+  obtenerVehiculoPorDependencia(dependencia: string) {
+    const url = encodeURI(`${this.baseUrl}/vehiculo/dependencia/${dependencia}`);
+    return this.http.get<Vehiculo[]>(url);
+  }
+
 }

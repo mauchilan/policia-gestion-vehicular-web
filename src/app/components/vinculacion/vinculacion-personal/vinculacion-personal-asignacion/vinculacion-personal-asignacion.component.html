@@ -1,0 +1,120 @@
+<!-- Row -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex no-block align-items-center">
+                    <h4 class="card-title">Vinculaci&oacute;n de Vehiculos</h4>
+                </div>
+            </div>
+            <hr>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <p-table [value]="personal" [tableStyle]="{ 'min-width': '50rem' }">                
+                            <ng-template pTemplate="header">
+                                <tr>                                    
+                                    <th>Identificaci&oacute;n</th>
+                                    <th>Nombres</th>
+                                    <th>Correo eleectr&oacute;nico</th>
+                                    <th>Tel&eacute;fono celular</th>
+                                    <th>Rango</th>       
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-personal>
+                                <tr>                                    
+                                    <td>{{ personal.attributes.identify[0] }}</td>
+                                    <td>{{ personal.firstName + ' ' + personal.lastName}}</td>
+                                    <td>{{ personal.email }}</td>
+                                    <td>{{ personal.attributes.movil[0] }}</td>
+                                    <td>{{ personal.attributes.range[0] }}</td>                                                                     
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </div>                
+            </div>
+            <hr>
+            <form [formGroup]="subcircuitoForm">
+                <div class="card-body">
+                    <div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="idLocalidad">Provincia</label>
+                        </div>
+                        <div class="col-3">                
+                            <p-dropdown formControlName="idProvincia" [options]="provincias" optionValue="idLocalidad" optionLabel="nombreLocalidad" placeholder="Seleccionar Provincia" (onChange)="obtenerDistritos()"></p-dropdown>
+                            <small id="nombre_req" class="p-error" *ngIf="!subcircuitoForm.controls['idProvincia'].valid">Provincia es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="idLocalidad">Distrito</label>
+                        </div>
+                        <div class="col-3">                
+                            <p-dropdown formControlName="idDistrito" [options]="distritos" optionValue="idDependencia" optionLabel="nombreDependencia" placeholder="Seleccionar Distrito" (onChange)="obtenerCircuito()"></p-dropdown>
+                            <small id="nombre_req" class="p-error" *ngIf="!subcircuitoForm.controls['idDistrito'].valid">Distrito es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="idParentDependencia">Circuito</label>
+                        </div>
+                        <div class="col-3">                
+                            <p-dropdown formControlName="idCircuito" [options]="circuitos" optionValue="idDependencia" optionLabel="nombreDependencia" placeholder="Seleccionar Distrito" (onChange)="obtenerSubircuito()"></p-dropdown>
+                            <small id="nombre_req" class="p-error" *ngIf="!subcircuitoForm.controls['idCircuito'].valid">Circuito es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <br />     
+                    <div class="row form-group">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="idParentDependencia">Subcircuito</label>
+                        </div>
+                        <div class="col-3">                
+                            <p-dropdown formControlName="idSubcircuito" [options]="subcircuitos" optionValue="idDependencia" optionLabel="nombreDependencia" placeholder="Seleccionar Distrito"></p-dropdown>
+                            <small id="nombre_req" class="p-error" *ngIf="!subcircuitoForm.controls['idSubcircuito'].valid">Circuito es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>       
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="guardarAsignacionDependencia($event)">Grabar</button>
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="cancelar()" >Cancelar</button>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                </div>
+                <p-toast></p-toast>
+                <p-confirmDialog></p-confirmDialog>
+            </form>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Mensaje" [(visible)]="visible" [modal]="true" [draggable]="false" [resizable]="false" [style]="{ width: '25vw' }">
+    <p>
+        No se han llenado todo los campos obligatorios.
+    </p>
+</p-dialog>

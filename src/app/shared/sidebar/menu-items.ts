@@ -21,7 +21,7 @@ export const ROUTES: RouteInfo[] = [
     path: '',
     title: 'Dependencias',
     icon: 'mdi mdi-comment-processing-outline',
-    class: '',
+    class: 'has-arrow',
     extralink: false,
     submenu: [
       {
@@ -49,32 +49,40 @@ export const ROUTES: RouteInfo[] = [
         submenu: []
       }
     ]
-  }/*,
+  },
   {
     path: '',
-    title: 'Ticket',
+    title: 'Vinculacion',
     icon: 'mdi mdi-bookmark-plus-outline',
     class: 'has-arrow',
     extralink: false,
     submenu: [
       {
-        path: '/apps/ticketlist',
-        title: 'Ticket List',
+        path: '/vinculacion/vehicular',
+        title: 'Vehicular a Dependencia',
         icon: 'mdi mdi-book-multiple',
         class: '',
         extralink: false,
         submenu: []
       },
       {
-        path: '/apps/ticketdetails',
-        title: 'Ticket Details',
+        path: '/vinculacion/personal',
+        title: 'Personal a Dependencia',
+        icon: 'mdi mdi-book-plus',
+        class: '',
+        extralink: false,
+        submenu: []
+      },
+      {
+        path: '/vinculacion/vehicular-personal',
+        title: 'Vehicular a Personal',
         icon: 'mdi mdi-book-plus',
         class: '',
         extralink: false,
         submenu: []
       }
     ]
-  },
+  }/*,
   {
     path: '',
     title: 'Extra',
