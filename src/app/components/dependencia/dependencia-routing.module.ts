@@ -5,13 +5,14 @@ import { SubcircuitosComponent } from './subcircuitos/subcircuitos.component';
 import { DistritoNuevoComponent } from './distritos/distrito-nuevo/distrito-nuevo.component';
 import { CircuitoNuevoComponent } from './circuitos/circuito-nuevo/circuito-nuevo.component';
 import { SubcircuitoNuevoComponent } from './subcircuitos/subcircuito-nuevo/subcircuito-nuevo.component';
+import { AuthGuard } from '../../services/security/auth.guard';
 
 export const DependenciasRoutes: Routes = [
   {
     path: '',
     children: [
       {
-        path: 'distritos', component: DistritosComponent,
+        path: 'distritos', component: DistritosComponent, canActivate: [AuthGuard],
         data: {
           title: 'Gestion Distritos',
           urls: [
@@ -31,9 +32,9 @@ export const DependenciasRoutes: Routes = [
             }
           }
         ]*/
-      },
+      }, 
       {
-        path: 'circuitos', component: CircuitosComponent,
+        path: 'circuitos', component: CircuitosComponent, canActivate: [AuthGuard],
         data: {
           title: 'Gestion Circuitos',
           urls: [
@@ -43,7 +44,7 @@ export const DependenciasRoutes: Routes = [
         }
       },
       {
-        path: 'subcircuitos', component: SubcircuitosComponent,
+        path: 'subcircuitos', component: SubcircuitosComponent, canActivate: [AuthGuard],
         data: {
           title: 'Gestion Subcircuitos',
           urls: [
@@ -53,7 +54,7 @@ export const DependenciasRoutes: Routes = [
         }
       },
       {
-        path: 'distritos/nuevo', component: DistritoNuevoComponent,
+        path: 'distritos/nuevo', component: DistritoNuevoComponent, canActivate: [AuthGuard],
         data: {
           title: 'Nuevo Distrito',
           urls: [
@@ -63,7 +64,7 @@ export const DependenciasRoutes: Routes = [
         }
       },
       {
-        path: 'circuitos/nuevo', component: CircuitoNuevoComponent,
+        path: 'circuitos/nuevo', component: CircuitoNuevoComponent, canActivate: [AuthGuard],
         data: {
           title: 'Nuevo Circuito',
           urls: [
@@ -73,7 +74,7 @@ export const DependenciasRoutes: Routes = [
         }
       },
       {
-        path: 'subcircuitos/nuevo', component: SubcircuitoNuevoComponent,
+        path: 'subcircuitos/nuevo', component: SubcircuitoNuevoComponent, canActivate: [AuthGuard],
         data: {
           title: 'Nuevo Subircuito',
           urls: [

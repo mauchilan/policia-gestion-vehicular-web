@@ -9,6 +9,8 @@ import { PersonalService } from '../../../services/app/personal.service';
 import { Vehiculo } from '../../../models/vehiculo';
 import { VehiculoService } from '../../../services/app/vehiculo.service';
 import { User } from '../../../models/user';
+import { VehiculoPersonalService } from '../../../services/app/vehiculo.personal.service';
+import { VehiculoPersonal } from '../../../models/vehiculo.personal';
 
 @Component({
   selector: 'app-vinculacion-vehicular-personal',
@@ -30,6 +32,7 @@ export class VinculacionVehicularPersonalComponent {
     public dependenciaService: DependenciaService,
     public personalService: PersonalService,
     private vehiculoService: VehiculoService,
+    private vehiculoPersonalService: VehiculoPersonalService,
     public confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
@@ -76,6 +79,49 @@ export class VinculacionVehicularPersonalComponent {
     this.personalService.obtenerPersonalPorDependencia('idDependencia', this.model["idSubcircuito"].value).subscribe(response => {
       this.personals = response;
     })
+  }
+
+  guardarAsignacionVehiculoPersonal(event: Event) {
+    this.subcircuitoForm.markAllAsTouched();
+    this.subcircuitoForm.updateValueAndValidity();
+    if (!this.subcircuitoForm.valid) {
+      this.showDialog();
+    } else {
+      this.mostrarMensaje(event);
+    }
+  }
+
+  showDialog() {
+    this.visible = true;
+  }
+
+  mostrarMensaje(event: Event) {
+    this.confirmationService.confirm({
+      target: event.target as EventTarget,
+      message: 'Desea asignar el vehiculo al personal',
+      header: 'Mensaje',
+      icon: 'pi pi-exclamation-triangle',
+      acceptIcon: "none",
+      rejectIcon: "none",
+      rejectButtonStyleClass: "p-button-text",
+      accept: () => {
+        this.enviarDatos();
+      }
+    });
+  }
+
+  enviarDatos() {
+    let vehiculoPersonal = new VehiculoPersonal;
+    vehiculoPersonal.idPersonal = this.model["idPersonal"].value;
+    const vehiculo = this.vehiculos.filter(data => data.placa === this.model["idVehiculo"].value)
+    vehiculoPersonal.idVehiculo = vehiculo[0].idVehichulo;
+    this.vehiculoPersonalService.grabarVehiculoPersonal(vehiculoPersonal).subscribe(() => {
+      window.location.reload()
+    })
+  }
+
+  cancelar() {
+    window.location.reload();
   }
 
   get model() {

@@ -16,6 +16,11 @@ export class VehiculoService {
     return this.http.post<any>(url, vehiculo);
   }
 
+  obtenerVehiculo(idVehiculos: any[]) {
+    const url = encodeURI(`${this.baseUrl}/vehiculo/vehiculos/read`);
+    return this.http.post<Vehiculo[]>(url, idVehiculos);
+  }
+
   buscarVehiculos(page: number, size: number) {
     const url = encodeURI(`${this.baseUrl}/vehiculo/vehiculos?page=${page}&size=${size}`);
     return this.http.get<any>(url);

@@ -82,6 +82,14 @@ export const ROUTES: RouteInfo[] = [
         submenu: []
       }
     ]
+  },
+  {
+    path: '/mantenimiento/solicitud',
+    title: 'Solicitud de Mantenimiento',
+    icon: 'mdi mdi-email',
+    class: '',
+    extralink: false,
+    submenu: []
   }/*,
   {
     path: '',

@@ -1,4 +1,5 @@
 import { Catalogo } from "./catalogo";
+import { Dependencia } from "./dependencia";
 
 export class Vehiculo {
     idVehichulo?: number;
@@ -13,4 +14,5 @@ export class Vehiculo {
     modelo?: Catalogo;
     tipoVehiculo?: Catalogo;
     marca?: Catalogo;
+    dependencia?: Dependencia;
 }

@@ -22,11 +22,16 @@ const routes: Routes = [
         path: 'dependencia',
         loadChildren: () => import('./components/dependencia/dependencia.module').then(m => m.DependenciaModule),
         canActivate: [AuthGuard],
-      }
-      ,
+      },
       {
         path: 'vinculacion',
         loadChildren: () => import('./components/vinculacion/vinculacion.module').then(m => m.VinculacionModule),
+        canActivate: [AuthGuard],
+      }
+      ,
+      {
+        path: 'mantenimiento',
+        loadChildren: () => import('./components/mantenimiento/mantenimiento.module').then(m => m.MantenimientoModule),
         canActivate: [AuthGuard],
       }
     ]

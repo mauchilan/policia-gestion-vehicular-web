@@ -16,6 +16,11 @@ export class PersonalService {
     return this.http.get<any[]>(url);
   }
 
+  obtenerUsuario(id: string) {
+    const url = encodeURI(`${this.baseUrl}/user/id/${id}`);
+    return this.http.get<any>(url);
+  }
+
   updateDependencia(user: any) {
     const url = encodeURI(`${this.baseUrl}/user/dependencia`);
     return this.http.put<any>(url, user);
