@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FullComponent } from './layouts/full/full.component';
 import { AuthGuard } from './services/security/auth.guard';
+import { BlankComponent } from './layouts/blank/blank.component';
 
 const routes: Routes = [
   {
@@ -27,12 +28,25 @@ const routes: Routes = [
         path: 'vinculacion',
         loadChildren: () => import('./components/vinculacion/vinculacion.module').then(m => m.VinculacionModule),
         canActivate: [AuthGuard],
-      }
-      ,
+      },
       {
         path: 'mantenimiento',
         loadChildren: () => import('./components/mantenimiento/mantenimiento.module').then(m => m.MantenimientoModule),
         canActivate: [AuthGuard],
+      },
+      {
+        path: 'reportes',
+        loadChildren: () => import('./components/reportes/reportes.module').then(m => m.ReportesModule),
+        canActivate: [AuthGuard],
+      }
+    ]
+  },
+  {
+    path: '', component: BlankComponent,
+    children: [
+      {
+        path: 'sugerencia',
+        loadChildren: () => import('./components/sugerencia/sugerencia.module').then(m => m.SugerenciaModule)
       }
     ]
   }

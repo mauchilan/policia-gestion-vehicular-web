@@ -2,7 +2,7 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { ROUTES } from './menu-items';
 import { RouteInfo } from './sidebar.metadata';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 declare var $: any;
 
 @Component({
@@ -35,7 +35,7 @@ export class SidebarComponent implements OnInit {
   }
 
   constructor(
-    private modalService: NgbModal,
+    //private modalService: NgbModal,
     private router: Router,
     private route: ActivatedRoute
   ) {}

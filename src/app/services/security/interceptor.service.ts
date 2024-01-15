@@ -54,7 +54,7 @@ export class InterceptorService implements HttpInterceptor {
 
   private excludeUrlTokens(req: HttpRequest<any>): boolean {
     let exclude = false;
-    if (req.url.includes('this.environmentConfig.environment.nodeBackendUrl')) {
+    if (req.url.includes('sugerencia')) {
       exclude = true;
     }
     return exclude;

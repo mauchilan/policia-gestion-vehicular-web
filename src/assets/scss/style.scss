@@ -40,3 +40,16 @@ File: scss
 // this is for the perfect scrollbar
 @import '../../../node_modules/perfect-scrollbar/css/perfect-scrollbar.css';
 
+.p-inputtext {
+    width: 100%;
+    padding: 0.475rem 0.875rem;
+}
+
+.p-dropdown {
+    width: 100%;
+}
+
+.p-button-rounded {
+    border-radius: 2rem !important;
+}
+

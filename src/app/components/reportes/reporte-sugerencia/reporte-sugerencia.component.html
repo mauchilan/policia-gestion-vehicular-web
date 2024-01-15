@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Reporte Sugerencia/Reclamos</h4>
+        </div>
+        <hr>
+        <div class="card-body">
+            <div class="col-12">
+                <form class="form-horizontal m-t-20" id="loginform" [formGroup]="reporte">
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                            <label class="custom-control-label" for="provincia" >Fecha de Inicio</label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                            <p-calendar formControlName="fechaInicio" [showIcon]="true" dateFormat="yy-mm-dd"></p-calendar>
+                            <br>
+                            <small id="nombres-req" class="p-error"
+                                    *ngIf="!reporte.controls['fechaInicio'].valid">Fecha de Inicio es requerido.</small>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                            <label class="custom-control-label" for="distrito">Fecha Final</label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                            <p-calendar formControlName="fechaFin" [showIcon]="true" dateFormat="yy-mm-dd"></p-calendar>
+                            <br>
+                            <small id="nombres-req" class="p-error"
+                                    *ngIf="!reporte.controls['fechaFin'].valid">Fecha Final es requerido.</small>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "><button type="button" class="btn btn-info waves-effect waves-light" (click)="obtenerReporteSugerencia()">Buscar</button></div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>                        
+                    </div>
+                    <p></p>
+                    <div class="row">
+                        <p-table [value]="listaReporteSugerencia" [tableStyle]="{ 'min-width': '50rem' }">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th scope="col">Fecha Inicio</th>
+                                    <th scope="col">Fecha Fin</th>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Circuito</th>
+                                    <th scope="col">Subcircuito</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-reporte>
+                                <tr>
+                                    <td>{{ reporte.fechaInicio | date:'yyyy-MM-dd' }}</td>
+                                    <td>{{ reporte.fechaFin | date:'yyyy-MM-dd' }}</td>
+                                    <td>{{ reporte.cantidad }}</td>                                    
+                                    <td>{{ reporte.tipo }}</td>
+                                    <td>{{ reporte.dependencia.nombreDependencia }}</td>
+                                    <td>{{ reporte.dependencia.dependencia.nombreDependencia }}</td>                                    
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Mensaje" [(visible)]="visible" [modal]="true" [draggable]="false" [resizable]="false"
+    [style]="{ width: '25vw' }">
+    <p>
+        La fecha Final {{ reporte.controls['fechaInicio'].value | date:'yyyy-MM-dd' }} no puede ser menor a la Fecha de Inicio {{ reporte.controls['fechaFin'].value | date:'yyyy-MM-dd' }}.
+    </p>
+</p-dialog>

@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800');
 
-@import "../node_modules/primeng/resources/themes/md-light-indigo/theme.css";
+@import "../node_modules/primeng/resources/themes/lara-light-blue/theme.css";
 @import "../node_modules/primeng/resources/primeng.css";
 @import "../node_modules/primeicons/primeicons.css";
 @import "../node_modules/primeflex/primeflex.scss";
@@ -18,4 +18,8 @@
 
 .p-button-rounded {
     border-radius: 2rem !important;
+}
+
+thead, tbody, tfoot, tr, td, th {
+    border-bottom: 1px solid #e5e7eb !important;
 }

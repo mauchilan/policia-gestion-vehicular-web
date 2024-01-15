@@ -1,0 +1,161 @@
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center"
+    style="background:url(assets/images/big/auth-bg.jpg) no-repeat center center;">
+    <div class="auth-box">
+        <div id="loginform">
+            <div class="logo">
+                <span class="db"><img src="assets/images/logo-icon.png" alt="logo" /></span>
+                <p></p>
+                <h3 class="font-medium m-b-20">Sugerencia/Comentarios</h3>
+            </div>
+            <hr>
+            <!-- Form -->
+            <div class="row">
+                <div class="col-12">
+                    <form class="form-horizontal m-t-20" id="loginform" [formGroup]="sugerencia">
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <label class="custom-control-label" for="provincia">Provincia</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <p-dropdown id="provincia" formControlName="provincia" [options]="listaProvincias"
+                                    optionValue="idLocalidad" optionLabel="nombreLocalidad"
+                                    placeholder="Seleccionar Provincia" (onChange)="obtenerDistritos()">
+                                </p-dropdown>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <label class="custom-control-label" for="distrito">Distrito</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <p-dropdown id="distrito" formControlName="distrito" [options]="listaDistritos"
+                                    optionValue="idDependencia" optionLabel="nombreDependencia"
+                                    placeholder="Seleccionar Distrito" (onChange)="obtenerCircuito()">
+                                </p-dropdown>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <label class="custom-control-label" for="circuito">Circuito</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <p-dropdown id="circuito" formControlName="circuito" [options]="listaCircuito"
+                                    optionValue="idDependencia" optionLabel="nombreDependencia"
+                                    placeholder="Seleccionar Circuito" (onChange)="obtenerSubircuito()">
+                                </p-dropdown>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <label class="custom-control-label" for="subcircuito">Subcircuito</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <p-dropdown id="subcircuito" formControlName="subcircuito" [options]="listaSubcircuito"
+                                    optionValue="idDependencia" optionLabel="nombreDependencia"
+                                    placeholder="Seleccionar Subcircuito">
+                                </p-dropdown>
+                                <small id="nombres-req" class="p-error"
+                                    *ngIf="!sugerencia.controls['subcircuito'].valid">Subcircuito es requerido.</small>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <label class="custom-control-label" for="tipo">Tipo</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <p-dropdown id="tipo" formControlName="tipo" [options]="listaCatalogo"
+                                    optionValue="idCatalogo" optionLabel="descripcion" placeholder="Seleccionar Tipo">
+                                </p-dropdown>
+                                <small id="nombres-req" class="p-error" *ngIf="!sugerencia.controls['tipo'].valid">Tipo
+                                    es requerido.</small>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <label class="custom-control-label" for="detalle">Detalle</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <textarea id="detalle" formControlName="detalle" type="text" pInputTextarea rows="5"
+                                    aria-describedby="basic-addon1"></textarea>
+                                <small id="nombres-req" class="p-error"
+                                    *ngIf="!sugerencia.controls['detalle'].valid">Detalle es requerido.</small>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <label class="custom-control-label" for="contacto">Contacto</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 text-center">
+                                <input id="contacto" formControlName="contacto" type="text" pInputText
+                                    aria-describedby="basic-addon1">
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <label class="custom-control-label" for="apellidos">Apellidos</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <input id="apellidos" formControlName="apellidos" type="text" pInputText
+                                    aria-describedby="basic-addon1">
+                                <small id="nombres-req" class="p-error"
+                                    *ngIf="!sugerencia.controls['apellidos'].valid">Apellidos es requerido.</small>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <label class="custom-control-label" for="nombres">Nombres</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10">
+                                <input id="nombres" formControlName="nombres" type="text" pInputText
+                                    aria-describedby="basic-addon1">
+                                <small id="nombres-req" class="p-error"
+                                    *ngIf="!sugerencia.controls['nombres'].valid">Nombres es requerido.</small>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 m-t-10 "></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
+                                <div class="social">
+                                    <button type="button" class="btn btn-info waves-effect waves-light"
+                                        (click)="guardarSugerencia($event)">Grabar</button>
+                                    <button type="button"
+                                        class="btn btn-info waves-effect waves-light">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+
+<p-dialog header="Mensaje" [(visible)]="visible" [modal]="true" [draggable]="false" [resizable]="false"
+    [style]="{ width: '25vw' }">
+    <p>
+        No se han llenado todo los campos obligatorios.
+    </p>
+</p-dialog>

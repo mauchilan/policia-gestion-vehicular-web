@@ -90,17 +90,17 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
-  }/*,
+  },
   {
     path: '',
-    title: 'Extra',
+    title: 'Reportes',
     icon: 'mdi mdi-gradient',
     class: 'has-arrow',
     extralink: false,
     submenu: [
       {
-        path: '/apps/fullcalendar',
-        title: 'Calendar',
+        path: '/reportes/sugerencias',
+        title: 'Sugerencias/Reclamos',
         icon: 'mdi mdi-calendar',
         class: '',
         extralink: false,
@@ -123,7 +123,7 @@ export const ROUTES: RouteInfo[] = [
         submenu: []
       }
     ]
-  },
+  }/*,
   {
     path: '',
     title: 'UI',

@@ -15,17 +15,21 @@ import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
 import { initializeKeycloak } from './services/security/keycloak-init';
 import { AuthService } from './services/security/auth.service';
 import { InterceptorService } from './services/security/interceptor.service';
+import { BlankComponent } from './layouts/blank/blank.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpinnerComponent,
     FullComponent,
+    BlankComponent,
     NavigationComponent,
     SidebarComponent,
     BreadcrumbComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
