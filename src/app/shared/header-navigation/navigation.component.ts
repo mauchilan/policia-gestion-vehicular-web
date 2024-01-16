@@ -1,10 +1,12 @@
-import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
+import { Component, AfterViewInit, EventEmitter, Output, OnInit } from '@angular/core';
 import {
   NgbModal,
   ModalDismissReasons,
   //NgbPanelChangeEvent,
   NgbCarouselConfig
 } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from '../../services/security/auth.service';
+import { PersonalService } from '../../services/app/personal.service';
 //import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 declare var $: any;
 
@@ -12,14 +14,23 @@ declare var $: any;
   selector: 'app-navigation',
   templateUrl: './navigation.component.html'
 })
-export class NavigationComponent implements AfterViewInit {
+export class NavigationComponent implements OnInit, AfterViewInit {
   @Output() toggleSidebar = new EventEmitter<void>();
 
   //public config: PerfectScrollbarConfigInterface = {};
 
   public showSearch = false;
+  user: any = {};
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private authService: AuthService,
+    private personalService: PersonalService) {}
+  
+  ngOnInit(): void {
+    const data = this.authService.getUserStorage();
+    this.personalService.obtenerUsuario(data.id).subscribe(response => {
+      this.user = response;
+    });
+  }
 
   // This is for Notifications
   public notifications: any[] = [
@@ -84,6 +95,10 @@ export class NavigationComponent implements AfterViewInit {
       time: '9:00 AM'
     }
   ];
+
+  logout() {
+    this.authService.logout();
+  }
 
   ngAfterViewInit() {}
 }

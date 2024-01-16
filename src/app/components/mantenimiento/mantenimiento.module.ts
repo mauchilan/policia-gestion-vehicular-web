@@ -10,6 +10,8 @@ import { CardModule } from 'primeng/card';
 import { CalendarModule } from 'primeng/calendar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,8 +25,10 @@ import { InputTextModule } from 'primeng/inputtext';
     DialogModule,
     InputTextModule,
     InputTextareaModule,
+    ReactiveFormsModule,
     RouterModule.forChild(MantenimientoRoutes),
     TableModule
-  ]
+  ],
+  providers: [ConfirmationService, MessageService]
 })
 export class MantenimientoModule { }

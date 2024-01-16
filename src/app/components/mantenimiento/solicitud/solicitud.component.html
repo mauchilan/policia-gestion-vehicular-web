@@ -118,71 +118,83 @@
     </p>
 </p-dialog>
 
+<p-dialog header="Mensaje" [(visible)]="visibleMensajes" [modal]="true" [draggable]="false" [resizable]="false"
+    [style]="{ width: '25vw' }">
+    <p>
+        {{ mensaje }}
+    </p>
+</p-dialog>
+
 <p-dialog header="Datos del Solicitante" [(visible)]="visibleSolicitud" [modal]="true" [draggable]="false"
     [resizable]="false" [style]="{ width: '60vw' }">
-    <div class="card">
-        <div class="card-body">
-            <div class="row form-group">
-                <div class="col-3">
+    <form [formGroup]="solicitud">
+        <div class="card">
+            <div class="card-body">
+                <div class="row form-group">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-3">
+                        <label for="idLocalidad">Nombres</label>
+                    </div>
+                    <div class="col-3">
+                        <span>{{ user.firstName + ' ' + user.lastName }}</span>
+                    </div>
+                    <div class="col-3">
+                    </div>
                 </div>
-                <div class="col-3">
-                    <label for="idLocalidad">Nombres</label>
+                <div class="row form-group">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-3">
+                        <label for="idLocalidad">Fecha de mantemiento</label>
+                    </div>
+                    <div class="col-3">
+                        <p-calendar appendTo="body" [showTime]="true" [showSeconds]="false" [showIcon]="true"
+                            [stepMinute]="30" formControlName="fechaMantenimiento"></p-calendar>
+                        <small id="nombre_req" class="p-error" *ngIf="!solicitud.controls['fechaMantenimiento'].valid">Fecha de mantemiento es requerido.</small>
+                    </div>
+                    <div class="col-3">
+                    </div>
                 </div>
-                <div class="col-3">
-                    <span>{{ user.firstName + ' ' + user.lastName }}</span>
+                <div class="row form-group">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-3">
+                        <label for="idLocalidad">Kilometraje actual</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" pInputText id="kilometrajeActual" formControlName="kilometrajeActual" (change)="validarKilometraje()">
+                        <small id="nombre_req" class="p-error" *ngIf="!solicitud.controls['kilometrajeActual'].valid">Kilometraje actual es requerido.</small>
+                    </div>
+                    <div class="col-3">
+                    </div>
                 </div>
-                <div class="col-3">
+                <div class="row form-group">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-3">
+                        <label for="observaciones">Observaciones</label>
+                    </div>
+                    <div class="col-3">
+                        <textarea rows="5" cols="30" pInputTextarea formControlName="observaciones"></textarea>
+                    </div>
+                    <div class="col-3">
+                    </div>
                 </div>
             </div>
+            <hr>
             <div class="row form-group">
                 <div class="col-3">
                 </div>
-                <div class="col-3">
-                    <label for="idLocalidad">Fecha de mantemiento</label>
+                <div class="col-3 text-end">
+                    <button type="button" class="btn btn-info waves-effect waves-light" (click)="grabarMantenimiento($event)">Grabar</button>
                 </div>
                 <div class="col-3">
-                    <p-calendar appendTo="body" [showTime]="true" [showSeconds]="false" [showIcon]="true" [stepMinute]="30"></p-calendar>
-                </div>
-                <div class="col-3">
-                </div>
-            </div>
-            <div class="row form-group">
-                <div class="col-3">
-                </div>
-                <div class="col-3">
-                    <label for="idLocalidad">Kilometraje actual</label>
-                </div>
-                <div class="col-3">
-                    <input type="text" pInputText id="placa">
-                </div>
-                <div class="col-3">
-                </div>
-            </div>
-            <div class="row form-group">
-                <div class="col-3">
-                </div>
-                <div class="col-3">
-                    <label for="idLocalidad">Observaciones</label>
-                </div>
-                <div class="col-3">
-                    <textarea rows="5" cols="30" pInputTextarea></textarea>
+                    <button type="button" class="btn btn-info waves-effect waves-light" (click)="cerrarDialogo()">Cancelar</button>
                 </div>
                 <div class="col-3">
                 </div>
             </div>
         </div>
-        <hr>
-        <div class="row form-group">
-            <div class="col-3">
-            </div>
-            <div class="col-3 text-end">
-                <button type="button" class="btn btn-info waves-effect waves-light">Grabar</button>
-            </div>
-            <div class="col-3">
-                <button type="button" class="btn btn-info waves-effect waves-light">Cancelar</button>
-            </div>
-            <div class="col-3">
-            </div>
-        </div>
-    </div>
+    </form>
 </p-dialog>
