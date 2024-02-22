@@ -71,7 +71,6 @@ export class VehiculosComponent {
       dynamicComp?.complete.subscribe(complete => {
         if (complete) {
           this.dynamicContent = false;
-          this.dynamicContent = false;
         }
       });
     }

@@ -10,12 +10,21 @@ import { CardModule } from 'primeng/card';
 import { CalendarModule } from 'primeng/calendar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
+import { ListboxModule } from 'primeng/listbox';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistroComponent } from './registro/registro.component';
+import { RecepcionComponent } from './recepcion/recepcion.component';
+import { DetalleComponent } from './detalle/detalle.component';
+import { OrdenTrabajoComponent } from './orden-trabajo/orden-trabajo.component';
 
 @NgModule({
   declarations: [
-    SolicitudComponent
+    SolicitudComponent,
+    RegistroComponent,
+    RecepcionComponent,
+    DetalleComponent,
+    OrdenTrabajoComponent
   ],
   imports: [
     ButtonModule,
@@ -25,6 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DialogModule,
     InputTextModule,
     InputTextareaModule,
+    FormsModule,
+    ListboxModule,
     ReactiveFormsModule,
     RouterModule.forChild(MantenimientoRoutes),
     TableModule

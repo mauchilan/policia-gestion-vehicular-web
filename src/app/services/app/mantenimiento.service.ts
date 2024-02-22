@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Mantenimiento } from '../../models/mantenimiento';
+import { MantenimientoDto } from '../../models/mantenimiento.dto';
+import { MantenimientoRequest } from '../../models/mantenimiento.request';
 
 @Injectable({
   providedIn: 'root'
@@ -15,4 +17,15 @@ export class MantenimientoService {
     const url = encodeURI(`${this.baseUrl}/mantenimiento/save`);
     return this.http.post<any>(url, mantenimiento);
   }
+
+  obtenerMantenimientoEstado(estado: string) {
+    const url = encodeURI(`${this.baseUrl}/mantenimiento/solicitudes/${estado}`);
+    return this.http.get<MantenimientoDto[]>(url);
+  }
+
+  updateMantenimiento(request: MantenimientoRequest) {
+    const url = encodeURI(`${this.baseUrl}/mantenimiento/update-mantenimiento`);
+    return this.http.put<any>(url, request);
+  }
+  
 }

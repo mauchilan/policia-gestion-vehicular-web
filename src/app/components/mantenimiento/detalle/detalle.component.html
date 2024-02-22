@@ -1,0 +1,191 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Detalle de solicitud</h4>
+            </div>
+            <hr>
+            <div class="card-body">
+                <form [formGroup]="detalleSolicitud">
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="tipoVehiculo">Identificaci&oacute;n Solicitante</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="idSolicitante" formControlName="idSolicitante">                        
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="tipoVehiculo">Solicitante</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="solicitante" formControlName="solicitante">                        
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="tipoVehiculo">Fecha de Mantenimiento</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="fechaMantenimiento" formControlName="fechaMantenimiento" >                        
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="tipoVehiculo">Hora de Mantenimiento</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="horaMantenimiento" formControlName="horaMantenimiento" >                        
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="tipoVehiculo">Tipo de Vehiculo</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="tipoVehiculo" formControlName="tipoVehiculo" >                            
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="marca">Marca</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="marca" formControlName="marca" >                            
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="modelo">Modelo</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="modelo" formControlName="modelo" >                                
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="placa">Placa</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="placa" formControlName="placa" >                        
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="kilometraje">Kilometraje</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="kilometraje" formControlName="kilometraje" >                            
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="estado === 'R'">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="tipoMantenimiento">Mantenimiento</label>
+                        </div>
+                        <div class="col-3">       
+                            <p-listbox id="tipoMantenimiento" [options]="listaTipoMantenimiento" optionValue="idTipoMantenimiento" optionLabel="tipoMantenimiento" formControlName="tipoMantenimiento" 
+                                [multiple]="true" [metaKeySelection]="false" (onChange)="escogerTipoMantenimientos()"></p-listbox>                    
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="estado === 'R'">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="subtotal">SubTotal</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="subtotal" formControlName="subtotal" >                            
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="estado === 'R'">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="iva">IVA 12%</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="iva" formControlName="iva" >                            
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="estado === 'R'">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="total">Total</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="total" formControlName="total" >                            
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row" *ngIf="estado === 'R'">
+                        <div class="col-4">                            
+                        </div>
+                        <div class="col-4 text-center">
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="updateMantenimiento('SN')">Guardar Registro</button>
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="updateMantenimiento('T')">Generar Orden de Trabajo</button>
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="cancelar()">Cancelar</button>
+                        </div>                    
+                        <div class="col-4">                                                        
+                        </div>                    
+                    </div>
+                    <div class="row" *ngIf="estado === 'N'">
+                        <div class="col-6 text-end">
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="updateMantenimiento('')">Guardar</button>
+                        </div>                    
+                        <div class="col-6">                            
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="cancelar()">Cancelar</button>
+                        </div>                    
+                    </div>
+                </form>
+            </div>            
+        </div>
+    </div>
+</div>

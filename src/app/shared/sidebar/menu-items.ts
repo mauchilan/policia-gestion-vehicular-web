@@ -3,7 +3,7 @@ import { RouteInfo } from './sidebar.metadata';
 export const ROUTES: RouteInfo[] = [
   {
     path: '',
-    title: 'Gestion Vehicular',
+    title: 'Gesti\u00F3n Vehicular',
     icon: 'mdi mdi-dots-horizontal',
     class: 'nav-small-cap',
     extralink: true,
@@ -11,7 +11,7 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: '/vehiculo/vehiculos',
-    title: 'Vehiculos',
+    title: 'Veh\u00EDculos',
     icon: 'mdi mdi-email',
     class: '',
     extralink: false,
@@ -52,7 +52,7 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: '',
-    title: 'Vinculacion',
+    title: 'Vinculaci\u00F3n',
     icon: 'mdi mdi-bookmark-plus-outline',
     class: 'has-arrow',
     extralink: false,
@@ -85,7 +85,31 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: '/mantenimiento/solicitud',
-    title: 'Solicitud de Mantenimiento',
+    title: 'Solicitud Mantenimiento',
+    icon: 'mdi mdi-email',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/mantenimiento/recepcion',
+    title: 'Recepci\u00F3n Mantenimiento',
+    icon: 'mdi mdi-email',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/mantenimiento/registro',
+    title: 'Registro Mantenimiento',
+    icon: 'mdi mdi-email',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/mantenimiento/ordenes',
+    title: 'Ordenes de Trabajo',
     icon: 'mdi mdi-email',
     class: '',
     extralink: false,

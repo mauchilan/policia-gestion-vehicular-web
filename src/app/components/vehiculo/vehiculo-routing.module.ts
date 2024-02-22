@@ -10,20 +10,20 @@ export const VehiculoRoutes: Routes = [
       {
         path: 'vehiculos', component: VehiculosComponent,
         data: {
-          title: 'Gestion Vehicular',
+          title: 'Gesti\u00F3n Vehicular',
           urls: [
-            { title: 'Vehiculo', url: '/vehiculo/vehiculos' },
-            { title: 'Vehiculos' }
+            { title: 'Veh\u00EDculo', url: '/vehiculo/vehiculos' },
+            { title: 'Veh\u00EDculos' }
           ]
         }, canActivate: [AuthGuard],
       },
       {
         path: 'nuevo-vehiculo', component: VehiculosNuevoComponent,
         data: {
-          title: 'Gestion Vehicular',
+          title: 'Gesti\u00F3n Vehicular',
           urls: [
-            { title: 'Vehiculo', url: '/vehiculo/vehiculos' },
-            { title: 'Nuevo Vehiculo' }
+            { title: 'Veh\u00EDculo', url: '/vehiculo/vehiculos' },
+            { title: 'Nuevo Veh\u00EDculo' }
           ]
         }, canActivate: [AuthGuard],
       }

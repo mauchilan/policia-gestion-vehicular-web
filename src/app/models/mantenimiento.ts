@@ -3,12 +3,15 @@ export class Mantenimiento {
     idPersonal?: string;
     idVehichulo?: number;
     idTipoMantemiento?: number;
-    kmActuall?: number;
+    kmActual?: number;
     observaciones?: string;
     fechaMantenimiento?: Date;
     horaMantenimiento?: Date;
     proximoKilometraje?: number;
     usuarioEntrega?: string;
     usuarioRetira?: string;
-    costoTotal?: string;
+    subCosto?: number;
+    iva?: number;
+    costoTotal?: number;
+    estado?: string;
 }

@@ -2,6 +2,7 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { ROUTES } from './menu-items';
 import { RouteInfo } from './sidebar.metadata';
 import { Router, ActivatedRoute } from '@angular/router';
+import { KeycloakAuthorizationService } from '../../services/security/keycloak.authorization.service';
 //import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 declare var $: any;
 
@@ -37,11 +38,22 @@ export class SidebarComponent implements OnInit {
   constructor(
     //private modalService: NgbModal,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private auth: KeycloakAuthorizationService
   ) {}
 
   // End open close
   ngOnInit() {
     this.sidebarnavItems = ROUTES.filter(sidebarnavItem => sidebarnavItem);
+    this.auth.init({
+      config: {
+        url: 'http://localhost:8080',
+        realm: 'policianacional',
+        clientId: 'gestion-vehicular'
+      },
+      initOptions: {
+        defaultResourceServerId: 'gestion-vehicular-resource'
+      }
+    })
   }
 }

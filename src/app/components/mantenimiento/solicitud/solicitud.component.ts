@@ -8,6 +8,7 @@ import { Mantenimiento } from '../../../models/mantenimiento';
 import { MantenimientoService } from '../../../services/app/mantenimiento.service';
 import { FormControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { WebsocketService } from '../../../services/app/websocket.service';
 
 @Component({
   selector: 'app-solicitud',
@@ -57,7 +58,7 @@ export class SolicitudComponent implements OnInit {
   }
 
   obtenerVehiculo(idVehiculo: any[]) {
-    this.vehiculoService.obtenerVehiculo(idVehiculo).subscribe(response => {
+    this.vehiculoService.obtenerVehiculos(idVehiculo).subscribe(response => {
       this.vehiculos = response;
     });
   }
@@ -69,6 +70,7 @@ export class SolicitudComponent implements OnInit {
   }
 
   visualizarSolicitud(vehiculo: Vehiculo) {
+    //this.websocketService.sendWebSocket("data");
     this.vehiculoSeleccionado = vehiculo;
     this.visibleSolicitud = true;
   }
@@ -120,9 +122,13 @@ export class SolicitudComponent implements OnInit {
     let mantenimiento = new Mantenimiento;
     mantenimiento.idPersonal = this.user.id;
     mantenimiento.idVehichulo = this.vehiculoSeleccionado.idVehichulo;
-    mantenimiento.kmActuall = this.solicitud.value.kilometrajeActual;
+    mantenimiento.kmActual = this.solicitud.value.kilometrajeActual;
     mantenimiento.fechaMantenimiento = this.solicitud.value.fechaMantenimiento;
     mantenimiento.observaciones = this.solicitud.value.observaciones;
+    mantenimiento.estado = 'N';
+    mantenimiento.subCosto = 0;
+    mantenimiento.iva = 0;
+    mantenimiento.costoTotal = 0;
     this.mantenimientoService.grabarMantenimiento(mantenimiento).subscribe(response => {
       this.cerrarDialogo();
       this.mensaje = 'Los datos fueron creado correctamente';

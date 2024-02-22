@@ -1,0 +1,43 @@
+<div *ngIf="!dynamicContent">
+    <div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex no-block align-items-center">
+                    <h4 class="card-title">{{titulo}}</h4>            
+                </div>
+            </div>
+            <hr>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <p-table [value]="listaSolicitudes" [tableStyle]="{ 'min-width': '50rem' }">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>Solicitante</th>
+                                    <th>Fecha de Solicitud</th>
+                                    <th>Hora de Solicitud</th>                                    
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-solicitud>
+                                <tr>
+                                    <td>{{ solicitud.solicitante }}</td>
+                                    <td>{{ solicitud.fechaMantenimiento | date:'yyyy-MM-dd'}}</td>
+                                    <td>{{ solicitud.horaMantenimiento | date:'HH:mm'}}</td>                                    
+                                    <td style="width: 5px;">
+                                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-outlined mr-2" pTooltip="Editar nodo" (click)="openDetalle(solicitud)" ></button>
+                                    </td>                                    
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div [ngClass]="{'hide-element': !dynamicContent}">
+    <ng-template #dynamicInsert></ng-template>
+</div>

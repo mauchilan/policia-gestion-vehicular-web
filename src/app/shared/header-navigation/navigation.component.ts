@@ -7,6 +7,7 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '../../services/security/auth.service';
 import { PersonalService } from '../../services/app/personal.service';
+import { WebsocketService } from '../../services/app/websocket.service';
 //import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 declare var $: any;
 
@@ -19,6 +20,8 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 
   //public config: PerfectScrollbarConfigInterface = {};
 
+  //private webSocket: WebSocket;
+  listaSolicitudes: any[] = [];
   public showSearch = false;
   user: any = {};
 
@@ -26,10 +29,18 @@ export class NavigationComponent implements OnInit, AfterViewInit {
     private personalService: PersonalService) {}
   
   ngOnInit(): void {
+    //this.websocketService.openWebsocketConnection();
+    //this.websocketService.getMessage('notifications').subscribe(msg => console.log(msg));
     const data = this.authService.getUserStorage();
     this.personalService.obtenerUsuario(data.id).subscribe(response => {
       this.user = response;
     });
+  }
+
+  send() {
+    console.log('nose')
+    //this.webSocket.onopen = () => this.webSocket.send("Message");
+    //this.websocketService.sendWebSocket('data');
   }
 
   // This is for Notifications
@@ -101,4 +112,8 @@ export class NavigationComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {}
+
+  ngOnDestroy(): void {
+    //this.websocketService.closeWebsocketConnection();
+  }
 }
