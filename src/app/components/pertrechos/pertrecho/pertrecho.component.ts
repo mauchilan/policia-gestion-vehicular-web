@@ -48,7 +48,7 @@ export class PertrechoComponent implements OnInit {
   }
 
   buscarPertrecho(page: number, size: number) {
-    this.pertrechoService.buscarVehiculos(page, size).subscribe(response => {
+    this.pertrechoService.buscarPertrecho(page, size).subscribe(response => {
       this.pageable = response;
       this.listaPertrecho = response.content;
     });

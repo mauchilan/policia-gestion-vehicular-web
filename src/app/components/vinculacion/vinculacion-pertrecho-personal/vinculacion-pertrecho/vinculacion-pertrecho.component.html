@@ -1,0 +1,120 @@
+<div class="row" >
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Asignaci&oacute;n de Pertrecho a Personal</h4>
+            </div>
+            <hr>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Datos del Personal</h4>
+                </div>
+                <hr>
+                <div class="row form-group">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-3">
+                        <label for="idLocalidad">Nombres</label>
+                    </div>
+                    <div class="col-3">
+                        <span>{{ personal.firstName + ' ' + personal.lastName }}</span>
+                    </div>
+                    <div class="col-3">
+                    </div>
+                </div>
+                <br />
+                <div class="row form-group">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-3">
+                        <label for="idLocalidad">Telefono</label>
+                    </div>
+                    <div class="col-3">
+                        <span>{{ personal.attributes?.movil[0] }}</span>
+                    </div>
+                    <div class="col-3">
+                    </div>
+                </div>
+                <br />
+                <div class="row form-group">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-3">
+                        <label for="idLocalidad">Rango</label>
+                    </div>
+                    <div class="col-3">
+                        <span>{{ personal.attributes?.range[0] }}</span>
+                    </div>
+                    <div class="col-3">
+                    </div>
+                </div>
+                <br />
+                <div class="row form-group">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-3">
+                        <label for="idLocalidad">Dependencia</label>
+                    </div>
+                    <div class="col-3">
+                        <span>{{ personal.attributes?.dependencia[0].split('|')[1] || personal.attributes?.dependencia[0]}}</span>
+                    </div>
+                    <div class="col-3">
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Lista de Pertrechos a asignar</h4>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="col-12">
+                                <p-table [value]="listaPertrechos" selectionMode="single" [(selection)]="pertrechoSelectd" [tableStyle]="{ 'min-width': '50rem' }">
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th>C&oacute;digo</th>
+                                            <th>Tipo de arma</th>
+                                            <th>Nombre</th>
+                                            <th>Descripci&oacute;n</th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-pertrecho>
+                                        <tr [pSelectableRow]="pertrecho">
+                                            <td>{{ pertrecho.codigo }}</td>
+                                            <td>{{ pertrecho.descripcion }}</td>
+                                            <td>{{ pertrecho.nombre }}</td>
+                                            <td>{{ pertrecho.tipoArma.descripcion }}</td>                                            
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                        </div>
+                    </div>
+                    <p-toast></p-toast>
+                    <p-confirmDialog></p-confirmDialog>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3 text-end">
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="grabarAsignacion($event)">Grabar</button>
+                        </div>
+                        <div class="col-3">                            
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="cancelar()">Cancelar</button>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Mensaje" [(visible)]="visible" [modal]="true" [draggable]="false" [resizable]="false" [style]="{ width: '25vw' }">
+    <p>
+        {{ mensaje }}
+    </p>
+</p-dialog>

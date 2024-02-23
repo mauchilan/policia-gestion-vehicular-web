@@ -16,9 +16,19 @@ export class PertrechoService {
     return this.http.post<any>(url, pertrecho);
   }
 
-  buscarVehiculos(page: number, size: number) {
+  buscarPertrecho(page: number, size: number) {
     const url = encodeURI(`${this.baseUrl}/pertrecho/pertrechos?page=${page}&size=${size}`);
     return this.http.get<any>(url);
+  }
+
+  buscarPertrecoSinAsignar() {
+    const url = encodeURI(`${this.baseUrl}/pertrecho/noassign`);
+    return this.http.get<Pertrecho[]>(url);
+  }
+
+  buscarPertrechoPorPersonal(personal: string) {
+    const url = encodeURI(`${this.baseUrl}/pertrecho/personal/${personal}`);
+    return this.http.get<Pertrecho>(url);
   }
 
 }

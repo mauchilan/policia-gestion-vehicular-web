@@ -33,7 +33,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
-                        <p-table [value]="listaPertrecho" [tableStyle]="{ 'min-width': '50rem' }">
+                        <p-table [value]="listaPertrecho" selectionMode="single" [tableStyle]="{ 'min-width': '50rem' }">
                             <ng-template pTemplate="header">
                                 <tr>
                                     <th>C&oacute;digo</th>
@@ -46,7 +46,7 @@
                                 <tr>
                                     <td>{{ pertrecho.codigo }}</td>
                                     <td>{{ pertrecho.descripcion }}</td>
-                                    <td>{{ pertrecho.string }}</td>
+                                    <td>{{ pertrecho.nombre }}</td>
                                     <td>{{ pertrecho.tipoArma.descripcion }}</td>
                                     <td style="width: 5px;">
                                         <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-outlined mr-2" pTooltip="Editar pertrecho" (click)="openEditPertrecho('editar', pertrecho)"></button>

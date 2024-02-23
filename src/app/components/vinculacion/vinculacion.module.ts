@@ -17,6 +17,7 @@ import { ToastModule } from 'primeng/toast';
 import { VinculacionPersonalAsignacionComponent } from './vinculacion-personal/vinculacion-personal-asignacion/vinculacion-personal-asignacion.component';
 import { VinculacionVehicularPersonalComponent } from './vinculacion-vehicular-personal/vinculacion-vehicular-personal.component';
 import { VinculacionPertrechoPersonalComponent } from './vinculacion-pertrecho-personal/vinculacion-pertrecho-personal.component';
+import { VinculacionPertrechoComponent } from './vinculacion-pertrecho-personal/vinculacion-pertrecho/vinculacion-pertrecho.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { VinculacionPertrechoPersonalComponent } from './vinculacion-pertrecho-p
     VinculacionVehicularAsignacionComponent,
     VinculacionPersonalAsignacionComponent,
     VinculacionVehicularPersonalComponent,
-    VinculacionPertrechoPersonalComponent
+    VinculacionPertrechoPersonalComponent,
+    VinculacionPertrechoComponent
   ],
   imports: [
     CommonModule,

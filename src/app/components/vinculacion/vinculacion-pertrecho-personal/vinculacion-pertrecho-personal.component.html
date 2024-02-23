@@ -1,4 +1,3 @@
-<p>vinculacion-pertrecho-personal works!</p>
 <!-- Row -->
 <div class="row" *ngIf="!dynamicContent">
     <div class="col-12">
@@ -30,7 +29,7 @@
                                     <td>{{ personal.attributes.movil[0] }}</td>
                                     <td>{{ personal.attributes.range[0] }}</td>                                
                                     <td style="width: 5px;">
-                                        <button pButton pRipple icon="pi pi-link" class="p-button-rounded p-button-outlined mr-2" pTooltip="Vincular Vehiculos" (click)="vincularPersonal(personal)"></button>
+                                        <button pButton pRipple icon="pi pi-link" class="p-button-rounded p-button-outlined mr-2" pTooltip="Vincular Vehiculos" (click)="vincularPersonals(personal)"></button>
                                     </td>                                    
                                 </tr>
                             </ng-template>

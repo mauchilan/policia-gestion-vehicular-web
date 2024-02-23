@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { PersonalService } from '../../../services/app/personal.service';
+import { VinculacionPertrechoComponent } from './vinculacion-pertrecho/vinculacion-pertrecho.component';
 
 @Component({
   selector: 'app-vinculacion-pertrecho-personal',
@@ -21,17 +22,17 @@ export class VinculacionPertrechoPersonalComponent implements OnInit {
     });
   }
 
-  vincularPersonals() {
+  vincularPersonals(personal: any) {
     this.dynamicContent = true;
     if (this.dynamicInsert) {
       this.dynamicInsert.clear();
-      /*let dynamicComp = this.dynamicInsert?.createComponent(VinculacionPersonalAsignacionComponent).instance;
-      dynamicComp.personal = this.personalSelected;
+      let dynamicComp = this.dynamicInsert?.createComponent(VinculacionPertrechoComponent).instance;
+      dynamicComp.personal = personal;
       dynamicComp?.complete.subscribe(complete => {
         if (complete) {
           this.dynamicContent = false;
         }
-      });*/
+      });
     }
   }
 
