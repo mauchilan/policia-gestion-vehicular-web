@@ -3,6 +3,7 @@ import { VinculacionVehicularComponent } from "./vinculacion-vehicular/vinculaci
 import { VinculacionPersonalComponent } from "./vinculacion-personal/vinculacion-personal.component";
 import { VinculacionVehicularPersonalComponent } from "./vinculacion-vehicular-personal/vinculacion-vehicular-personal.component";
 import { AuthGuard } from "../../services/security/auth.guard";
+import { VinculacionPertrechoPersonalComponent } from "./vinculacion-pertrecho-personal/vinculacion-pertrecho-personal.component";
 
 export const VinculacionRoutes: Routes = [
   {
@@ -35,6 +36,16 @@ export const VinculacionRoutes: Routes = [
           urls: [
             { title: 'Vinculacion Personal', url: '/vinculacion/personal' },
             { title: 'Vinculacion Personal' }
+          ]
+        }, canActivate: [AuthGuard],
+      },
+      {
+        path: 'pertecho-personal', component: VinculacionPertrechoPersonalComponent,
+        data: {
+          title: 'Gestion Vinculacion Pertecho al Personal',
+          urls: [
+            { title: 'Vinculacion Pertecho', url: '/vinculacion/pertecho-personal' },
+            { title: 'Vinculacion Pertecho' }
           ]
         }, canActivate: [AuthGuard],
       }

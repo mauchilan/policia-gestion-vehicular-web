@@ -1,0 +1,91 @@
+<!-- Row -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{ accion }} Pertrecho</h4>
+            </div>
+            <hr>
+            <form class="form-horizontal m-t-20" [formGroup]="pertrechoForm">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="placa">C&oacute;digo</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="placa" formControlName="codigo" maxlength="10" readonly>
+                            <small id="nombre_req" class="p-error" *ngIf="!pertrechoForm.controls['codigo'].valid">C&oacute;digo es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>            
+
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="nombre">Nombre</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="nombre" formControlName="nombre" maxlength="50">
+                            <small id="nombre_req" class="p-error" *ngIf="!pertrechoForm.controls['nombre'].valid">Nombres requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="descripcion">Descripci&oacute;n</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" pInputText id="descripcion" formControlName="descripcion" maxlength="50">
+                            <small id="descripcion_req" class="p-error" *ngIf="!pertrechoForm.controls['descripcion'].valid">Descripci&oacute;n es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <label for="tipoVehiculo">Tipo de Arma</label>
+                        </div>
+                        <div class="col-3">                            
+                            <p-dropdown formControlName="tipoArma" [options]="tipoArmas.childs" optionValue="idCatalogo" optionLabel="descripcion" placeholder="Seleccionar Tipo Arma"></p-dropdown>
+                            <small id="nombre_req" class="p-error" *ngIf="!pertrechoForm.controls['tipoArma'].valid">Tipo de arma es requerido.</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>                                
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3 text-end">
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="guardarPertrecho($event)">Grabar</button>
+                        </div>
+                        <div class="col-3">                            
+                            <button type="button" class="btn btn-info waves-effect waves-light" (click)="cancelar()">Cancelar</button>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                </div>
+                <p-toast></p-toast>
+                <p-confirmDialog></p-confirmDialog>
+            </form>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Mensaje" [(visible)]="visible" [modal]="true" [draggable]="false" [resizable]="false" [style]="{ width: '25vw' }">
+    <p>
+        No se han llenado todo los campos obligatorios.
+    </p>
+</p-dialog>

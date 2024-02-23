@@ -16,6 +16,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { VinculacionPersonalAsignacionComponent } from './vinculacion-personal/vinculacion-personal-asignacion/vinculacion-personal-asignacion.component';
 import { VinculacionVehicularPersonalComponent } from './vinculacion-vehicular-personal/vinculacion-vehicular-personal.component';
+import { VinculacionPertrechoPersonalComponent } from './vinculacion-pertrecho-personal/vinculacion-pertrecho-personal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { VinculacionVehicularPersonalComponent } from './vinculacion-vehicular-p
     VinculacionVehicularComponent,
     VinculacionVehicularAsignacionComponent,
     VinculacionPersonalAsignacionComponent,
-    VinculacionVehicularPersonalComponent
+    VinculacionVehicularPersonalComponent,
+    VinculacionPertrechoPersonalComponent
   ],
   imports: [
     CommonModule,

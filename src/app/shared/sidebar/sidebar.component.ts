@@ -136,7 +136,7 @@ export class SidebarComponent implements OnInit {
         var subItem: RouteInfo = {
           path: resource.uris[0] + data[1],
           title: data[0],
-          icon: resource.icon_uri,
+          icon: scope.iconUri,
           class: '',
           extralink: false,
           submenu: []

@@ -39,6 +39,12 @@ const routes: Routes = [
         loadChildren: () => import('./components/reportes/reportes.module').then(m => m.ReportesModule),
         canActivate: [AuthGuard],
       }
+      ,
+      {
+        path: 'pertrechos',
+        loadChildren: () => import('./components/pertrechos/pertrechos.module').then(m => m.PertrechosModule),
+        canActivate: [AuthGuard],
+      }
     ]
   },
   {
