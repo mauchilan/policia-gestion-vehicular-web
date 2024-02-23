@@ -25,6 +25,7 @@ export class SolicitudComponent implements OnInit {
   mensaje!: string;
   user: any;
   datosUsuario: any = {};
+  minimumDate!: Date;
   solicitud!: UntypedFormGroup;
 
   constructor(private vehiculoPersonalService: VehiculoPersonalService, 
@@ -36,6 +37,11 @@ export class SolicitudComponent implements OnInit {
     private formBuilder: UntypedFormBuilder) {}
 
   ngOnInit(): void {
+    this.minimumDate = new Date();
+    this.minimumDate.setMinutes(0);
+    this.minimumDate.setSeconds(0);
+    this.minimumDate.setHours(this.minimumDate.getHours() + 1);
+    this.vehiculoSeleccionado = new Vehiculo;
     this.solicitud = this.formBuilder.group({
       fechaMantenimiento: new FormControl("", [Validators.required]),
       kilometrajeActual: new FormControl("", [Validators.required]),
@@ -138,6 +144,20 @@ export class SolicitudComponent implements OnInit {
 
   cerrarDialogo() {
     this.visibleSolicitud = false;
+  }
+
+  validarHorario() {
+    const horaInicio: number = 8;
+    const horaFinal: number = 17;
+    const date: number = this.solicitud.value.fechaMantenimiento.getHours();
+    if (date < horaInicio || date > horaFinal) {
+      this.mensaje = 'El hora de atencion es de ' + horaInicio + " y " + horaFinal;
+      this.visibleMensajes = true;
+      this.solicitud.controls['fechaMantenimiento'].setErrors({'incorrect': true});
+    } else {
+      this.solicitud.controls['fechaMantenimiento'].setErrors(null);
+    }
+    this.solicitud.updateValueAndValidity();
   }
 
 

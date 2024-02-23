@@ -25,9 +25,9 @@
                                     <td>{{ solicitud.fechaMantenimiento | date:'yyyy-MM-dd'}}</td>
                                     <td>{{ solicitud.horaMantenimiento | date:'HH:mm'}}</td>                                    
                                     <td style="width: 200px;">                                        
-                                        <button pButton pRipple icon="pi pi-download" class="p-button-rounded p-button-outlined mr-2" pTooltip="Descargar" ></button>
-                                        <button pButton pRipple icon="pi pi-print" class="p-button-rounded p-button-outlined mr-2" pTooltip="Imprimir" ></button>
-                                        <button pButton pRipple icon="pi pi-check" class="p-button-rounded p-button-outlined mr-2" pTooltip="Imprimir" ></button>
+                                        <button pButton pRipple icon="pi pi-download" class="p-button-rounded p-button-outlined mr-2" pTooltip="Descargar"  (click)="descargarOrdenes()"></button>
+                                        <button pButton pRipple icon="pi pi-print" class="p-button-rounded p-button-outlined mr-2" pTooltip="Imprimir" (click)="imrpimirOrdenes()"></button>
+                                        <button pButton pRipple icon="pi pi-check" class="p-button-rounded p-button-outlined mr-2" pTooltip="Finalizar" ></button>
                                     </td>                                    
                                 </tr>
                             </ng-template>

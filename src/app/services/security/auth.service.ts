@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 
@@ -6,7 +7,9 @@ import { KeycloakService } from 'keycloak-angular';
 })
 export class AuthService {
 
-  constructor(private keycloakService: KeycloakService) { }
+  baseUrl = "http://localhost:8280/gestion-api";
+
+  constructor(private keycloakService: KeycloakService, private http: HttpClient) { }
 
   logout(): void {
     localStorage.removeItem('token');
@@ -34,6 +37,11 @@ export class AuthService {
 
   setUserStorage(user: any) {
     localStorage.setItem('userLogin', JSON.stringify(user));
+  }
+
+  obtenerMenu() {
+    return this.http.get<any[]> (this.baseUrl + '/auth/permisssion');
+    //return this.keycloakSSO.getGroupsById(realm, id);
   }
 
 }

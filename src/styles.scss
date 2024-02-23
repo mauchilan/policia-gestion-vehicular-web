@@ -23,3 +23,8 @@
 thead, tbody, tfoot, tr, td, th {
     border-bottom: 1px solid #e5e7eb !important;
 }
+
+.hide-element {
+    visibility: hidden;
+    display: none !important;
+  }
